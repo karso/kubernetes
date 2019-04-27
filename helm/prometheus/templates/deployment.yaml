@@ -1,22 +1,22 @@
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-  name: {{ template "guestbook.fullname" . }}
+  name: {{ template "prometheus.fullname" . }}
   labels:
-    app: {{ template "guestbook.name" . }}
-    chart: {{ template "guestbook.chart" . }}
+    app: {{ template "prometheus.name" . }}
+    chart: {{ template "prometheus.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ template "guestbook.name" . }}
+      app: {{ template "prometheus.name" . }}
       release: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: {{ template "guestbook.name" . }}
+        app: {{ template "prometheus.name" . }}
         release: {{ .Release.Name }}
     spec:
       containers:
